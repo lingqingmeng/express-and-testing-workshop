@@ -10,6 +10,7 @@ test('Should succeed without DB', t => {
     .expect(200)
     .expect('Content-Type', /json/)
     .end((err, res) => {
+      console.log("res.body: ",res.body);
       t.same(res.statusCode, 200, 'Status code is 200');
       t.error(err, 'No error');
       t.end();
