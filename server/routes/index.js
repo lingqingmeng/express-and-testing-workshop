@@ -10,6 +10,12 @@ const queries = require('./queries');
 // Routes
 // =========================================================
 
+router.get('/fastcars', (req, res, next) =>
+  res.json({
+    cars: ["ford mustang","tesla model s","bmw m3"]
+  })
+);
+
 router.get('/facsters', (req, res, next) =>
   queries
     .getAll()
