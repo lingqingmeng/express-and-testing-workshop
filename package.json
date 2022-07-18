@@ -8,6 +8,7 @@
     "pretest": "npm run build:db",
     "test": "node ./server/tests/routes.test.js | tap-spec",
     "test:watch": "tape -w",
+
     "build:db": "node ./database/dbBuild.js"
   },
   "repository": {
