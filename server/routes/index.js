@@ -2,6 +2,12 @@ const express = require('express');
 const router = express.Router();
 const queries = require('./../queries');
 
+router.get('/fastcars', (req, res, next) =>
+  res.json({
+    fastcars: ["tesla","ford","gm"]
+  })
+);
+
 router.get('/facsters', (req, res, next) =>
   queries
     .getAll()
