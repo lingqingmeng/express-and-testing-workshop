@@ -3,6 +3,18 @@ const test = require('tape');
 const request = require('supertest');
 const app = require('./../server');
 
+
+test('Should succeed without DB', t => {
+  request(app)
+    .get('/v1/api/fastcars/')
+    .expect(200)
+    .expect('Content-Type', /json/)
+    .end((err, res) => {
+      t.same(res.statusCode, 200, 'Status code is 200');
+      t.error(err, 'No error');
+      t.end();
+    });
+});
 test('All routes should return the expected results', t => {
   request(app)
     .get('/v1/api/facsters/')
