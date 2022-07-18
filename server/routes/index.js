@@ -16,15 +16,13 @@ router.get('/fastcars', (req, res, next) =>
   })
 );
 
+
 router.get('/facsters', (req, res, next) =>
   queries
     .getAll()
     .then(users => res.status(200).json(users))
     .catch(err => next(err))
 );
-/*
- * '/facsters/:name'
- */
 router.get('/facsters/:name', ({ params: { name } }, res, next) => {
   queries
     .getSingleFacster(name)
@@ -32,9 +30,6 @@ router.get('/facsters/:name', ({ params: { name } }, res, next) => {
     .catch(err => next(err));
 });
 
-/*
- * '/facster/new'
- */
 router.post('/facster/new', ({ body }, res, next) => {
   queries
     .addFacster(body)
@@ -42,19 +37,12 @@ router.post('/facster/new', ({ body }, res, next) => {
     .then(user => res.status(201).json(user))
     .catch(err => next(err));
 });
-
-/*
- * '/facsters/:name/hobby'
- */
 router.get('/facsters/:name/hobby', ({ params: { name }, body }, res, next) => {
   queries
     .getFacsterHobby(name)
     .then(facsterAndHobby => res.status(200).json(facsterAndHobby))
     .catch(err => next(err));
 });
-/*
- * '/facsters/:name/superpower'
- */
 router.get(
   '/facsters/:name/superpower',
   ({ params: { name }, body }, res, next) => {

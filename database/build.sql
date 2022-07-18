@@ -1,6 +1,9 @@
+
+
 BEGIN;
 
-DROP TABLE IF EXISTS facsters CASCADE;
+DROP TABLE IF EXISTS facsters,hobbies CASCADE;
+
 
 CREATE TABLE facsters(
   id SERIAL PRIMARY KEY,

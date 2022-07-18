@@ -1,12 +1,17 @@
 //This is all hopefully familiar by now
 const express = require('express');
-const bodyParser = require('body-parser');
+
+const path = require('path');
 const routes = require('./routes');
+const bodyParser = require('body-parser');
 
 const app = express();
 
-// Parses the request payload (if JSON) before the request goes to the handler
 app.use(bodyParser.json());
+
+//TODO We need middleware to convert request and response payloads to an from JSON
+app.use('/v1/api/', routes);
+
 
 app.use(routes);
 
